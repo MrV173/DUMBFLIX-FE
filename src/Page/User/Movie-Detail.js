@@ -1,5 +1,5 @@
 import React from "react";
-import Vider from "../../Assets/img/trailer.mp4"
+import ReactPlayer from 'react-player';
 import NavUser from "../../Component/NavbarUser";
 import {Row, Col, Button} from "react-bootstrap"
 import  { API } from '../../Config/Api'
@@ -22,9 +22,7 @@ export default function MovieDetail() {
         <div>
             <NavUser />
             <div style={{backgroundColor:"black"}}>
-                <video controls style={{ width: '100%'}}>
-                <source src={movie?.link} type="video/mp4" />
-                </video>
+            <ReactPlayer url={movie?.link} controls />
             </div>
             <div style={{backgroundColor:"black", padding:"20px", color:"Gray", fontWeight:"bold"}}>
                 <hr />
