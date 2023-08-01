@@ -25,7 +25,7 @@ function App() {
   let navigate = useNavigate()
 
   const [state, dispatch] = useContext(UserContext)
-  const [isLoading, setIsLoading] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   const checkUser = async () => {
     try {
