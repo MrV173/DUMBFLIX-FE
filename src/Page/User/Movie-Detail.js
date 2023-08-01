@@ -11,7 +11,7 @@ export default function MovieDetail() {
 
     let { id } = useParams()
     
-    let { data : movie, refetch } = useQuery("movieCache", async () => {
+    let { data : movie } = useQuery("movieCache", async () => {
         const response = await API.get(`/movie/${id}`)
         return response.data.data
     })
