@@ -17,7 +17,7 @@ export default function Profile() {
         image:'',
     })
     
-    let { data : user } = useQuery("userCache", async () => {
+    let { data : user, refetch } = useQuery("userCache", async () => {
         const response = await API.get ("/user")
         return response.data.data
     })

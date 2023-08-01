@@ -15,7 +15,7 @@ export default function MoviePage() {
 
     console.log("data tv : ", tv)
 
-    let { data : tvs } = useQuery("tvsCache", async () => {
+    let { data : tvs,refetch } = useQuery("tvsCache", async () => {
         const response = await API.get ("/tvs")
         return response.data.data
     } ) 

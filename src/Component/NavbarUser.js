@@ -20,6 +20,7 @@ export default function NavUser() {
     dispatch({
       type: 'LOGOUT',
     })
+    console.log("logout", logout)
     Navigate("/auth")
   }
 

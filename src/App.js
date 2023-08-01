@@ -30,7 +30,7 @@ function App() {
   const checkUser = async () => {
     try {
       const response = await API.get("/check-auth")
-      console.log("Check user success : ", response)
+      console.log("Check auth success : ", response)
 
       let payload = response.data.data
 
@@ -42,7 +42,7 @@ function App() {
       })
       setIsLoading(false)
     } catch (error) {
-      console.log("check user failed : ", error)
+      console.log("check auth failed : ", error)
       dispatch({
         type: "AUTH_ERROR"
       })
