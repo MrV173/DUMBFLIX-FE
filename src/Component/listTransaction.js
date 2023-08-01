@@ -12,9 +12,9 @@ export default function ListTransaction({item}) {
                 <Col>Active</Col>
                 <Col>Approve</Col>
                 <Col className="mb-3">
-                    <DropdownButton id="dropdown-basic-button" variant="secondary">
-                        <Dropdown.Item href="#/action-1">Approve</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Cancel</Dropdown.Item>
+                    <DropdownButton variant="secondary">
+                        <Dropdown.Item >Approve</Dropdown.Item>
+                        <Dropdown.Item >Cancel</Dropdown.Item>
                     </DropdownButton>
                 </Col>
                 <hr />

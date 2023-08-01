@@ -16,16 +16,14 @@ export default function MovieDetail() {
         return response.data.data
     })
 
-    console.log("datafilm", movie)
-
-
-    const videoURL = 'https://www.example.com/path/to/video.mp4';
+    console.log("datafilm", movie?.link)
+    
     return (
         <div>
             <NavUser />
             <div style={{backgroundColor:"black"}}>
                 <video controls style={{ width: '100%'}}>
-                <source src={Vider} type="video/mp4" />
+                <source src={movie?.link} type="video/mp4" />
                 </video>
             </div>
             <div style={{backgroundColor:"black", padding:"20px", color:"Gray", fontWeight:"bold"}}>

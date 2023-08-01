@@ -15,14 +15,14 @@ export default function MovieDetail() {
         return response.data.data
     })
 
-    console.log("datafilm", tv)
+    console.log("datafilm", tv?.link)
 
     return (
         <div>
             <NavUser />
             <div style={{backgroundColor:"black"}}>
                 <video controls style={{ width: '100%'}}>
-                <source src={Vider} type="video/mp4" />
+                <source src={tv?.link} type="video/mp4" />
                 </video>
             </div>
             <div style={{backgroundColor:"black", padding:"20px", color:"Gray", fontWeight:"bold"}}>

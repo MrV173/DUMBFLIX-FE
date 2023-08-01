@@ -18,7 +18,7 @@ export default function NavUser() {
   const logout = () => {
     console.log(state)
     dispatch({
-      type: "LOGOUT"
+      type: 'AUTH_ERROR',
     })
     Navigate("/auth")
   }

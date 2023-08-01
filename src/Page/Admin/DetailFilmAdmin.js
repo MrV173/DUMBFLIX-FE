@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import Vider from "../../Assets/img/trailer.mp4"
 import NavAdmin from "../../Component/NavbarAdmin";
 import {Row, Col, Button, Modal} from "react-bootstrap"
 import { API } from "../../Config/Api"
@@ -19,13 +18,15 @@ export default function DetailFilmAdmin() {
         return response.data.data
     })
 
+    console.log("datafilm", movieadmin?.link)
+
     return (
         
         <div>
             <NavAdmin />
         <div style={{backgroundColor:"black"}}>
                 <video controls style={{ width: '100%'}}>
-                <source src={Vider} type="video/mp4" />
+                <source src={movieadmin?.link} type="video/mp4" />
                 </video>
             </div>
             <div style={{backgroundColor:"black", padding:"20px", color:"Gray", fontWeight:"bold"}}>

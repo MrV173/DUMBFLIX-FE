@@ -20,7 +20,7 @@ export default function DetailFilmAdmin() {
         return response.data.data
     })
 
-    console.log("data tv :" , tvadmin)
+    console.log("data tv :" , tvadmin?.link)
 
     return (
         
@@ -28,7 +28,7 @@ export default function DetailFilmAdmin() {
             <NavAdmin />
         <div style={{backgroundColor:"black"}}>
                 <video controls style={{ width: '100%'}}>
-                <source src={Vider} type="video/mp4" />
+                <source src={tvadmin?.link} type="video/mp4" />
                 </video>
             </div>
             <div style={{backgroundColor:"black", padding:"20px", color:"Gray", fontWeight:"bold"}}>
