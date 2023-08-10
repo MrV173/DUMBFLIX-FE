@@ -1,5 +1,5 @@
 import React from "react";
-import Vider from "../../Assets/img/trailer.mp4"
+import ReactPlayer from 'react-player';
 import NavUser from "../../Component/NavbarUser";
 import {Row, Col, Button} from "react-bootstrap"
 import  { API } from '../../Config/Api'
@@ -10,7 +10,7 @@ export default function MovieDetail() {
 
     let { id } = useParams()
     
-    let { data : tv, } = useQuery("tvCache", async () => {
+    let { data : tv, refetch } = useQuery("tvCache", async () => {
         const response = await API.get(`/tv/${id}`)
         return response.data.data
     })
@@ -21,9 +21,9 @@ export default function MovieDetail() {
         <div>
             <NavUser />
             <div style={{backgroundColor:"black"}}>
-                <video controls style={{ width: '100%'}}>
-                <source src={tv?.link} type="video/mp4" />
-                </video>
+            <div style={{width:"100%"}}>
+            <ReactPlayer url={tv?.link} controls playing width="100%" height="100%"/>
+            </div>
             </div>
             <div style={{backgroundColor:"black", padding:"20px", color:"Gray", fontWeight:"bold"}}>
                 <hr />

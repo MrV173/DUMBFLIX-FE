@@ -11,7 +11,7 @@ import { useQuery } from "react-query";
 
 export default function Home() {
 
-    let {data : movies } = useQuery("/moviesCache", async () => {
+    let {data : movies, refetch } = useQuery("/moviesCache", async () => {
         const response = await API.get ("/movies")
         return response.data.data
     })

@@ -18,7 +18,7 @@ export default function FilmAdmin() {
         navigate('/addfilmadmin')
     }
 
-    let {data : movies } = useQuery("/moviesCache", async () => {
+    let {data : movies, refetch } = useQuery("/moviesCache", async () => {
         const response = await API.get ("/movies")
         return response.data.data
     })

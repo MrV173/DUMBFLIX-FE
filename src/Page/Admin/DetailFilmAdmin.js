@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import NavAdmin from "../../Component/NavbarAdmin";
+import ReactPlayer from "react-player";
 import {Row, Col, Button, Modal} from "react-bootstrap"
 import { API } from "../../Config/Api"
 import { useQuery } from "react-query";
@@ -7,13 +8,9 @@ import { useParams } from "react-router-dom";
 
 export default function DetailFilmAdmin() {
 
-    const [show, setShow] = useState(false)
-    const handleClose = () => setShow(false)
-    const handleShow = () => setShow (true)
-
     let {id} = useParams()
 
-    let {data : movieadmin } = useQuery("movieAdminCache", async () => {
+    let {data : movieadmin, refetch } = useQuery("movieAdminCache", async () => {
         const response = await API.get(`/movie/${id}`)
         return response.data.data
     })
@@ -25,9 +22,7 @@ export default function DetailFilmAdmin() {
         <div>
             <NavAdmin />
         <div style={{backgroundColor:"black"}}>
-                <video controls style={{ width: '100%'}}>
-                <source src={movieadmin?.link} type="video/mp4" />
-                </video>
+        <ReactPlayer url={movieadmin?.link} controls playing width="100%" height="100%" />
             </div>
             <div style={{backgroundColor:"black", padding:"20px", color:"Gray", fontWeight:"bold"}}>
                 <hr />
@@ -35,7 +30,7 @@ export default function DetailFilmAdmin() {
                     <Col>
                         <div>
                             <Row className="ps-5">
-                                <Col xs={2}>
+                                <Col xs={3}>
                                     <img src={movieadmin?.image} alt="cover" style={{height:"300px"}} />
                                 </Col>
                                 <Col>

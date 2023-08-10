@@ -60,6 +60,7 @@ export default function AddMovie() {
             Navigate("/filmadmin")
         } catch (err) {
             console.log("add film failed : " , err)
+            window.alert("Add Film Success")
         }
     })
 

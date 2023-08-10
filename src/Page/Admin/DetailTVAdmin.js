@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Vider from "../../Assets/img/trailer.mp4"
+import ReactPlayer from "react-player";
 import NavAdmin from "../../Component/NavbarAdmin";
 import {Row, Col, Button, Modal} from "react-bootstrap"
 import ModalAdd from "../../Component/Modal/Modal-AddEpisode"
@@ -15,11 +15,17 @@ export default function DetailFilmAdmin() {
 
     let { id } = useParams()
 
-    let { data : tvadmin } = useQuery("tvadminCache", async () => {
+    let { data : tvadmin, refetch } = useQuery("tvadminCache", async () => {
         const response = await API.get(`/tv/${id}`)
         return response.data.data
     })
 
+    let { data : episode } = useQuery("episodeCache", async () => {
+        const response = await API.get(`/episodes`)
+        return response.data.data
+    })
+
+    console.log("data : episode ", episode)
     console.log("data tv :" , tvadmin?.link)
 
     return (
@@ -27,9 +33,7 @@ export default function DetailFilmAdmin() {
         <div>
             <NavAdmin />
         <div style={{backgroundColor:"black"}}>
-                <video controls style={{ width: '100%'}}>
-                <source src={tvadmin?.link} type="video/mp4" />
-                </video>
+        <ReactPlayer url={tvadmin?.link} controls playing width="100%" height="100%" />
             </div>
             <div style={{backgroundColor:"black", padding:"20px", color:"Gray", fontWeight:"bold"}}>
                 <hr />
@@ -53,6 +57,9 @@ export default function DetailFilmAdmin() {
                     <Col>
                         <div style={{color:"white", textAlign:"end", paddingRight:"50px"}}>
                             <Button style={{backgroundColor:"red", border:"none", width:"40%"}} onClick={handleShow}>Add Episode</Button>
+                            <div className="border">
+                                <h2>Bagan episode</h2>
+                            </div>
 
                         </div>
                     </Col>

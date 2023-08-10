@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function MoviePage() {
 
-    let { data : movie } = useQuery("movieCache", async () => {
+    let { data : movie, } = useQuery("movieCache", async () => {
         const response = await API.get (`/movie/2`)
         return response.data.data
     })

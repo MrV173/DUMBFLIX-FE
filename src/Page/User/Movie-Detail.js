@@ -11,7 +11,7 @@ export default function MovieDetail() {
 
     let { id } = useParams()
     
-    let { data : movie } = useQuery("movieCache", async () => {
+    let { data : movie, refetch } = useQuery("movieCache", async () => {
         const response = await API.get(`/movie/${id}`)
         return response.data.data
     })
@@ -22,7 +22,7 @@ export default function MovieDetail() {
         <div>
             <NavUser />
             <div style={{backgroundColor:"black"}}>
-            <ReactPlayer url={movie?.link} controls />
+            <ReactPlayer url={movie?.link} controls playing width="100%" height="100%" />
             </div>
             <div style={{backgroundColor:"black", padding:"20px", color:"Gray", fontWeight:"bold"}}>
                 <hr />
