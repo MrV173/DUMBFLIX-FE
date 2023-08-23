@@ -54,15 +54,6 @@ export default function DetailFilmAdmin() {
                             </Row>
                         </div>
                     </Col>
-                    <Col>
-                        <div style={{color:"white", textAlign:"end", paddingRight:"50px"}}>
-                            <Button style={{backgroundColor:"red", border:"none", width:"40%"}} onClick={handleShow}>Add Episode</Button>
-                            <div className="border">
-                                <h2>Bagan episode</h2>
-                            </div>
-
-                        </div>
-                    </Col>
                 </Row>
             </div>
 
